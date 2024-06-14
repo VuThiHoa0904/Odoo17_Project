@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_logistic_custom_warehouse_cus,warehouse_cus,model_warehouse_cus,base.group_user,1,1,1,1
+access_logistic_custom_warehouse_shelf,warehouse_shelf,model_warehouse_shelf,base.group_user,1,1,1,1

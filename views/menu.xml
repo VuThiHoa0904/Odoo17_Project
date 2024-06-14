@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_logistic" name="Logistic" sequence="10"/>
+    <menuitem id="menu_warehouse" name="Warehouse" parent="menu_logistic" sequence="10"/>
+    <menuitem id="menu_warehouse_shelf" action="action_warehouse_shelf" name="Warehouse Shelf" parent="menu_warehouse"
+              sequence="4"/>
+    <menuitem id="menu_warehouse_cus" action="action_warehouse_cus" name="Warehouse" parent="menu_warehouse"
+              sequence="3"/>
+    <record id="stock.menu_stock_inventory_control" model="ir.ui.menu">
+        <field name="parent_id" ref="menu_logistic"/>
+        <field name="sequence">6</field>
+    </record>
+    <record id="fleet.menu_root" model="ir.ui.menu">
+        <field name="parent_id" ref="menu_logistic"/>
+    </record>
+
+</odoo>
