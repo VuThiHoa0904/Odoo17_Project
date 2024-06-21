@@ -7,7 +7,7 @@
     <menuitem id="menu_warehouse_cus" action="action_warehouse_cus" name="Warehouse" parent="menu_warehouse"
               sequence="3"/>
     <menuitem id="menu_delivery_bill" action="action_delivery_bill" name="Delivery Bill" parent="menu_warehouse"
-              sequence="4"/>
+              sequence="10"/>
     <record id="stock.menu_stock_inventory_control" model="ir.ui.menu">
         <field name="parent_id" ref="menu_logistic"/>
         <field name="sequence">6</field>

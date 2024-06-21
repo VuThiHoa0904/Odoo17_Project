@@ -18,13 +18,14 @@ Long description of module's purpose
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base'],
+    'depends': ['base', 'stock'],
 
     # always loaded
     'data': [
         'security/ir.model.access.csv',
         'views/warehouse_shelf_views.xml',
         'views/warehouse_cus_views.xml',
+        'views/delivery_bill_views.xml',
         'views/menu.xml',
     ],
     # only loaded in demonstration mode

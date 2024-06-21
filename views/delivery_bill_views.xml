@@ -5,7 +5,7 @@
         <field name="name">delivery.bill.form</field>
         <field name="model">delivery.bill</field>
         <field name="arch" type="xml">
-            <form string="Warehouse">
+            <form string="Delivery Bill">
                 <sheet>
                     <div class="oe_title">
                         <label for="name"/>
@@ -25,14 +25,17 @@
                             <field name="driver_id"/>
                         </group>
                     </group>
-                    <separator string="Product"/>
                     <group>
-                        <field name="bill_line_ids">
-                            <field name="product_id"/>
-                            <field name="quantity"/>
-                            <field name="price"/>
-                            <field name="total_amount"/>
-                        </field>
+                        <group string="Products">
+                            <field name="bill_line_ids" nolabel="1">
+                                <tree>
+                                    <field name="product_id"/>
+                                    <field name="quantity"/>
+                                    <field name="price"/>
+                                    <field name="total_amount"/>
+                                </tree>
+                            </field>
+                        </group>
                     </group>
                 </sheet>
             </form>
@@ -55,7 +58,7 @@
         <field name="name">Delivery Bill</field>
         <field name="res_model">delivery.bill</field>
         <field name="view_mode">tree,form</field>
-        <field name="view_id" ref="warehouse_cus_tree"/>
+        <field name="view_id" ref="delivery_bill_tree"/>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">
                 Create a new odometer log
