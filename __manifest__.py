@@ -26,6 +26,7 @@ Long description of module's purpose
         'views/warehouse_shelf_views.xml',
         'views/warehouse_cus_views.xml',
         'views/delivery_bill_views.xml',
+        'views/receipt_bill_views.xml',
         'views/menu.xml',
     ],
     # only loaded in demonstration mode

@@ -1,3 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+
+    <record id="receipt_bill_form" model="ir.ui.view">
+        <field name="name">receipt.bill.form</field>
+        <field name="model">receipt.bill</field>
+        <field name="arch" type="xml">
+            <form string="Receipt Bill">
+                <header>
+                    <button string="Submit" name="action_submitted"
+                            attrs="{'invisible':[('state','!=', 'draft')]}"
+                            type="object" class="oe_highlight"/>
+                    <button string="Done" name="action_done"
+                            attrs="{'invisible':[('state','!=', 'open')]}"
+                            type="object" class="oe_highlight"/>
+                    <button string="Fail" name="action_fail"
+                            attrs="{'invisible':[('state','!=', 'open')]}"
+                            type="object" class="oe_highlight"/>
+                    <field name="state" widget="statusbar" statusbar_visible="new,open,done,fail"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="company_id"/>
+                            <field name="address"/>
+                            <field name="date"/>
+                        </group>
+                        <group>
+                            <field name="fleet_id"/>
+                            <field name="warehouse_id"/>
+                            <field name="driver_id"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group string="Products">
+                            <group string="Products">
+                                <div class="oe_subtotal_footer_separator oe_inline o_td_label">
+                                    <label for="total_amount_bill" string="Total Amount"/>
+                                </div>
+                                <field name="total_amount_bill" nolabel="1" class="oe_subtotal_footer_separator"/>
+                            </group>
+                            <field name="bill_line_ids" nolabel="1">
+                                <tree>
+                                    <field name="product_id"/>
+                                    <field name="quantity"/>
+                                    <field name="price"/>
+                                    <field name="total_amount"/>
+                                </tree>
+                            </field>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="receipt_bill_tree" model="ir.ui.view">
+        <field name="name">receipt.bill.tree</field>
+        <field name="model">receipt.bill</field>
+        <field name="arch" type="xml">
+            <tree string="Receipt Bill">
+                <field name="name"/>
+                <field name="date"/>
+                <field name="warehouse_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_receipt_bill" model="ir.actions.act_window">
+        <field name="name">Receipt Bill</field>
+        <field name="res_model">receipt.bill</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="receipt_bill_tree"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new odometer log
+            </p>
+            <p>
+                You can add various odometer entries for all vehicles.
+            </p>
+        </field>
+    </record>
+
 </odoo>
