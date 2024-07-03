@@ -15,6 +15,7 @@
                     <group>
                         <field name="size"/>
                         <field name="position"/>
+                        <field name="wh_cus_id"/>
                     </group>
                 </sheet>
             </form>

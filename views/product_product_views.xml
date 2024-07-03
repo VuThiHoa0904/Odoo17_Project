@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="product_product_inherit_form" model="ir.ui.view">
+        <field name="name">product.product</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_normal_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='general_information']" position="after">
+                <page name="warehouse_cus" string="Warehouse">
+                    <group>
+                        <field name="wh_shelf_id" string="Warehouse Shelf"/>
+                        <field name="wh_cus_id" string="Warehouse" force_save="1"/>
+                        <field name="number" />
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

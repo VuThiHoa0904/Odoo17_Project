@@ -7,16 +7,15 @@
         <field name="arch" type="xml">
             <form string="Delivery Bill">
                 <header>
-                    <button string="Submit" name="action_submitted"
-                            attrs="{'invisible':[('state','!=', 'draft')]}"
+                    <button string="Submit" name="action_submitted" invisible="state != 'new'"
                             type="object" class="oe_highlight"/>
                     <button string="Done" name="action_done"
-                            attrs="{'invisible':[('state','!=', 'open')]}"
+                            invisible="state != 'open'"
                             type="object" class="oe_highlight"/>
                     <button string="Fail" name="action_fail"
-                            attrs="{'invisible':[('state','!=', 'open')]}"
+                            invisible="state != 'open'"
                             type="object" class="oe_highlight"/>
-                    <field name="state" widget="statusbar" statusbar_visible="new,open,done,fail"/>
+                    <field name="state" widget="statusbar" statusbar_visible="new,open,done"/>
                 </header>
                 <sheet>
                     <div class="oe_title">
@@ -45,8 +44,8 @@
                             <field name="total_amount_bill" nolabel="1" class="oe_subtotal_footer_separator"/>
                         </group>
                         <field name="bill_line_ids" nolabel="1">
-                            <tree>
-                                <field name="product_id"/>
+                            <tree editable="bottom">
+                                <field name="product_id" context="{'warehouse_id': parent.warehouse_id}"/>
                                 <field name="quantity"/>
                                 <field name="price"/>
                                 <field name="total_amount"/>

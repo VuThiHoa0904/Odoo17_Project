@@ -25,6 +25,7 @@ Long description of module's purpose
         'security/ir.model.access.csv',
         'views/warehouse_shelf_views.xml',
         'views/warehouse_cus_views.xml',
+        'views/product_product_views.xml',
         'views/delivery_bill_views.xml',
         'views/receipt_bill_views.xml',
         'views/menu.xml',

@@ -1,5 +1,6 @@
 from odoo import api, fields, models
 
+
 class WarehouseCus(models.Model):
     _name = "warehouse.cus"
     _description = "Warehouse Custom"
@@ -10,3 +11,4 @@ class WarehouseCus(models.Model):
         readonly=True, required=True,
         help='The company is automatically set from your user preferences.')
     address = fields.Char('Address')
+    product_product_ids = fields.One2many('product.product', 'wh_cus_id', string='Products' )
